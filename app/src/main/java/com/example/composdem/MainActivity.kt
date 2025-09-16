@@ -32,40 +32,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ComposeDemoTheme {
+            ComposDemTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     DemoScreen(
+                        modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ComposeDemoTheme {
-        Greeting("Compose")
-    }
-}
-
-@Composable
-fun Greeting(x0: String) {
-    TODO("Not yet implemented")
-}
-
-@Composable
-fun ComposeDemoTheme(content: @Composable () -> Unit) {
-    TODO("Not yet implemented")
 }
 
 @Composable
@@ -80,10 +55,12 @@ fun DemoText(message: String, fontSize: Float) {
 @Preview
 @Composable
 fun DemoTextPreview() {
-    ComposeDemoTheme {
+    ComposDemTheme {
         DemoText(message = "Welcome to Android", fontSize = 12f)
     }
 }
+
+
 @Composable
 fun DemoSlider(sliderPosition: Float, onPositionChange: (Float) -> Unit ) {
     Slider(
