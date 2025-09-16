@@ -10,7 +10,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.composdem.ui.theme.ComposDemTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,12 +20,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ComposDemTheme {
+            ComposeDemoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
                 }
             }
         }
@@ -31,17 +29,25 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun ComposeDemoTheme(content: @Composable () -> Unit) {
+    TODO("Not yet implemented")
+}
+
+@Composable
+fun DemoText(message: String, fontSize: Float) {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = message,
+        fontSize = fontSize.sp,
+        fontWeight = FontWeight.Bold
     )
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun GreetingPreview() {
-    ComposDemTheme {
-        Greeting("Android")
+fun DemoTextPreview() {
+    ComposeDemoTheme {
+        DemoText(message = "Welcome to Android", fontSize = 12f)
     }
 }
+
+
